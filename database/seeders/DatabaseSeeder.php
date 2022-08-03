@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
+use App\Module\Blog\Models\Bcategory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,5 +17,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory(3)->create();
+        Bcategory::factory(5)->create();
     }
 }
