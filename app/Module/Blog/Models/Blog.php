@@ -29,4 +29,8 @@ class Blog extends Model
             ->generateSlugsFrom('label')
             ->saveSlugsTo('slug');
     }
+
+    public function categories(){
+        return $this->belongsToMany(Bcategory::class);
+    }
 }

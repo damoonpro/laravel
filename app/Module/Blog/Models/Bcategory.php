@@ -24,4 +24,8 @@ class Bcategory extends Model
         ->generateSlugsFrom('label')
         ->saveSlugsTo('slug');
     }
+
+    public function blogs(){
+        return $this->belongsToMany(Blog::class);
+    }
 }
