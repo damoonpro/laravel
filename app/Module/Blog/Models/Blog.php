@@ -38,4 +38,8 @@ class Blog extends Model
     public function categories(){
         return $this->belongsToMany(Bcategory::class);
     }
+
+    public function likes(){
+        return $this->belongsToMany(User::class, 'blog_like');
+    }
 }
