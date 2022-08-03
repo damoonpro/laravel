@@ -3,6 +3,7 @@
 
 namespace App\Module\Blog\Models;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Pishran\LaravelPersianSlug\HasPersianSlug;
@@ -28,6 +29,10 @@ class Blog extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
     public function categories(){
