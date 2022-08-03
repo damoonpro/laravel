@@ -1,5 +1,5 @@
-# Blog module
-## Description
+# Blog module 🧩
+## Description 📚
 when you want to use this module you have to move every file to correct directory<br><br>
 **Pay attention**  ⚠️ 
 <br>make sure about you setting the correct namespace for files
