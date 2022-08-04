@@ -24,4 +24,12 @@ class Reply extends Model
     public function blog(){
         return $this->belongsTo(Blog::class);
     }
+
+    public function replies(){
+        return $this->hasMany(self::class, 'parent_id');
+    }
+
+    public function base(){
+        return $this->hasMany(self::class, 'parent_id');
+    }
 }
