@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Module\Blog\Models\Blog;
+use App\Module\Blog\Models\Reply;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -53,5 +54,9 @@ class User extends Authenticatable
 
     public function likes(){
         return $this->belongsToMany(Blog::class, 'blog_like');
+    }
+
+    public function replies(){
+        return $this->hasMany(Reply::class);
     }
 }
