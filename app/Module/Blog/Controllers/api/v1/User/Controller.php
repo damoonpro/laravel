@@ -5,6 +5,7 @@ namespace App\Module\Blog\Controllers\api\v1\User;
 use App\Http\Controllers\Controller as BaseController;
 use App\Module\Blog\Requests\v1\Create as CreateBlogRequest;
 use App\Module\Blog\Requests\v1\Update as UpdateBlogRequest;
+use App\Module\Blog\Resources\v1\Collection as BlogCollection;
 use App\Module\Blog\Resources\v1\Single as SingleBlogView;
 use App\Tools\Helpers;
 use Illuminate\Http\Request;
@@ -52,5 +53,9 @@ class Controller extends BaseController
         $blog = auth()->user()->blogs()->whereSlug($blog)->firstOrFail(); // at the first blog is only string of slug then become to blog model
 
         return new SingleBlogView($blog);
+    }
+
+    public function collect(){
+        return new BlogCollection(auth()->user()->blogs()->paginate(12));
     }
 }
