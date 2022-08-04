@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller as BaseController;
 use App\Module\Blog\Resources\v1\Collection as BlogCollection;
 use App\Module\Blog\Resources\v1\Single as SingleBlogView;
 use App\Module\Blog\Models\Blog;
+use App\Tools\Helpers;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -33,5 +34,24 @@ class Controller extends BaseController
         if($blog->confirmed)
             return new SingleBlogView($blog);
         throw new NotFoundHttpException('صفحه یافت نشد');
+    }
+
+    public function like(Blog $blog){
+        if($blog->likes()->whereUserId(auth()->user()->id)->first()){
+            $blog->likes()->detach(['user_id' => auth()->user()->id]);
+
+            return Helpers::responseWithMessage('لایک شما با موفقیت حذف شد', [
+                'blog' => [
+                    'slug' => $blog->slug
+                ]
+            ]);
+        }
+        $blog->likes()->attach(auth()->user()->id);
+
+        return Helpers::responseWithMessage('لایک شما با موفقیت ثبت شد', [
+            'blog' => [
+                'slug' => $blog->slug
+            ]
+        ]);
     }
 }
