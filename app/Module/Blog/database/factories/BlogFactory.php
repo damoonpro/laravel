@@ -38,6 +38,16 @@ class BlogFactory extends Factory
             for($i = 1; $i <= $categories; $i++){
                 $blog->categories()->attach($i);
             }
+
+            $replies = mt_rand(0, 8);
+
+            for($i = 0; $i < $replies; $i++){
+                $blog->replies()->create([
+                    'user_id' => mt_rand(1, 3),
+                    'text' => fake()->text(30),
+                    'confirmed' => mt_rand(0, 1)
+                ]);
+            }
         });
     }
 }
