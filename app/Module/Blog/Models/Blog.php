@@ -42,4 +42,8 @@ class Blog extends Model
     public function likes(){
         return $this->belongsToMany(User::class, 'blog_like');
     }
+
+    public function replies(){
+        return $this->hasMany(Reply::class);
+    }
 }
