@@ -17,9 +17,10 @@ when you want to use this module you have to move every file to correct director
 
 ##### User routes
 
-| URL                      | METHOD | REQUEST | RESPONSE | DESCRIPTION                                                                               |
-|--------------------------| ----- | ----- | ----- |-------------------------------------------------------------------------------------------|
-| v1/me/blog/create        | POST | title, description, body, meta_title, meta_description | message , blog = [ slug, confirmed ] | This routes make a blog for user so it **important to user logged in**                    |
+| URL                     | METHOD | REQUEST | RESPONSE | DESCRIPTION                                                                               |
+|-------------------------| ----- | ----- | ----- |-------------------------------------------------------------------------------------------|
+| v1/me/blog/create       | POST | title, description, body, meta_title, meta_description | message , blog = [ slug, confirmed ] | This routes make a blog for user so it **important to user logged in**                    |
 | v1/me/blog/{slug}/update | PUT |title, description, body, meta_title, meta_description | message , blog = [ slug ] | This routes update a blog that user was created and it is **important to user logged in** |
-| v1/me/blog/{slug}        | GET | { ---- } | title, slug, description, body, meta_title, meta_description, likes, confirmed, user = { name, id }, categories = [ { label, slug } ] | this route get alot of information about blog to guest user but  **maybe not found page** |
-| v1/blog/{slug}/like | POST | { ----- } | message , blog = { slug } | Users can like or deslike blog |
+| v1/me/blog/{slug}       | GET | { ---- } | title, slug, description, body, meta_title, meta_description, likes, confirmed, user = { name, id }, categories = [ { label, slug } ] | this route get alot of information about blog to guest user but  **maybe not found page** |
+| v1/blog/{slug}/like     | POST | { ----- } | message , blog = { slug } | Users can like or deslike blog                                                            |
+| v1/me/blog              | GET | { ---- } | user = { name, id }, <br> categories = [ { label , slug } ], <br> title, slug, description, meta_title, meta_description, confirmed | this is for authenticated users and set paginate to 12 **make sure about loggin**             | 
