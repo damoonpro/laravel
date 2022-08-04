@@ -56,6 +56,6 @@ class Controller extends BaseController
     }
 
     public function collect(){
-        return new BlogCollection(auth()->user()->blogs()->paginate(12));
+        return new BlogCollection(auth()->user()->blogs()->latest()->paginate(12));
     }
 }

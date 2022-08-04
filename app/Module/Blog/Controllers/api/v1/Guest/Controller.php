@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class Controller extends BaseController
 {
     public function collect(){
-        return new BlogCollection(Blog::whereConfirmed(true)->paginate(12)); // TODO : add request to filter and sort blogs
+        return new BlogCollection(Blog::whereConfirmed(true)->latest()->paginate(12)); // TODO : add request to filter and sort blogs
     }
 
     // TODO : I think this part can be better than what is it.
