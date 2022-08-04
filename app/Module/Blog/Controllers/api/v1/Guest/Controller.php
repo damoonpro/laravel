@@ -4,8 +4,10 @@ namespace App\Module\Blog\Controllers\api\v1\Guest;
 
 use App\Http\Controllers\Controller as BaseController;
 use App\Module\Blog\Resources\v1\Collection as BlogCollection;
+use App\Module\Blog\Resources\v1\Single as SingleBlogView;
 use App\Module\Blog\Models\Blog;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Controller extends BaseController
 {
@@ -25,5 +27,11 @@ class Controller extends BaseController
             $blogs = $blogs->latest();
 
         return new BlogCollection($blogs->paginate(12));
+    }
+
+    public function single(Blog $blog){
+        if($blog->confirmed)
+            return new SingleBlogView($blog);
+        throw new NotFoundHttpException('صفحه یافت نشد');
     }
 }
