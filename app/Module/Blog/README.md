@@ -8,11 +8,11 @@ when you want to use this module you have to move every file to correct director
 
 ##### Guest routes
 
-| URL | METHOD | REQUEST | RESPONSE | DESCRIPTION                                                  |
-| ----- | ----- | ----- | ----- |--------------------------------------------------------------|
-| v1/blog/ | GET | { ---- } | user = { name, id }, <br> categories = [ { label , slug } ], <br> title, slug, description, meta_title, meta_description, confirmed | this is for guest users and set paginate to 12               | 
-| v1/blog/filter | GET | filter | user = { name, id }, <br> categories = [ { label , slug } ], <br> title, slug, description, meta_title, meta_description, confirmed | this is for guest users and set paginate to 12 but it filter | 
-
+| URL | METHOD | REQUEST | RESPONSE | DESCRIPTION                                                                               |
+| ----- | ----- | ----- | ----- |-------------------------------------------------------------------------------------------|
+| v1/blog/ | GET | { ---- } | user = { name, id }, <br> categories = [ { label , slug } ], <br> title, slug, description, meta_title, meta_description, confirmed | this is for guest users and set paginate to 12                                            | 
+| v1/blog/filter | GET | filter | user = { name, id }, <br> categories = [ { label , slug } ], <br> title, slug, description, meta_title, meta_description, confirmed | this is for guest users and set paginate to 12 but it filter                              | 
+| v1/blog/{slug} | GET | { ---- } | title, slug, description, body, meta_title, meta_description, likes, confirmed, user = { name, id }, categories = [ { label, slug } ] | this route get alot of information about blog to guest user but  **maybe not found page** |
 <br>
 
 ##### User routes
