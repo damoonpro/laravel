@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\api\v1\Blog\Guest\Controller as GuestBlogController;
+use App\Module\Blog\Controllers\api\v1\Guest\Controller as GuestBlogController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('blog')->controller(GuestBlogController::class)->group(function (){
@@ -10,6 +10,6 @@ Route::prefix('blog')->controller(GuestBlogController::class)->group(function ()
 
     Route::middleware('auth:sanctum')->group(function(){
         Route::post('{blog:slug}/like', 'like'); // like or dislike a blog when user authenticated
-        Route::post('{blog:slug}/reply', 'reply'); // reply a blog or answer the reply when user authenticated 
+        Route::post('{blog:slug}/reply', 'reply'); // reply a blog or answer the reply when user authenticated
     });
 });
