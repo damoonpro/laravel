@@ -58,4 +58,18 @@ class Controller extends BaseController
     public function collect(){
         return new BlogCollection(auth()->user()->blogs()->latest()->paginate(12));
     }
+
+    public function delete($blog){
+        $blog = auth()->user()->blogs()->whereSlug($blog)->firstOrFail(); // at the first blog is only string of slug then become to blog model
+
+        $blog->update([
+            'confirmed' => false
+        ]);
+
+        return Helpers::responseWithMessage('وبلاگ با موفقیت غیرفعال شد', [
+            'blog' => [
+                'slug' => $blog->slug
+            ]
+        ]);
+    }
 }
