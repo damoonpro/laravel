@@ -5,6 +5,7 @@ namespace App\Module\Blog\Controllers\api\v1\Guest;
 use App\Http\Controllers\Controller as BaseController;
 use App\Module\Blog\Resources\v1\Collection as BlogCollection;
 use App\Module\Blog\Resources\v1\Single as SingleBlogView;
+use App\Module\Blog\Requests\v1\Reply as ReplyBlogRequest;
 use App\Module\Blog\Models\Blog;
 use App\Tools\Helpers;
 use Illuminate\Http\Request;
@@ -51,6 +52,23 @@ class Controller extends BaseController
         return Helpers::responseWithMessage('لایک شما با موفقیت ثبت شد', [
             'blog' => [
                 'slug' => $blog->slug
+            ]
+        ]);
+    }
+
+    public function reply(Blog $blog, ReplyBlogRequest $request){
+        $reply = $blog->replies()->create([
+            'text' => $request->text,
+            'user_id' => auth()->user()->id,
+            'parent_id' => $request->parent_id,
+        ]);
+
+        return Helpers::responseWithMessage('باز خورد شما با موفقیت ثبت شد',[
+            'reply' => [
+                'id' => $reply->id,
+                'blog' => [
+                    'slug' => $blog->slug
+                ]
             ]
         ]);
     }
