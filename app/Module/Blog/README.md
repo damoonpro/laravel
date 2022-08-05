@@ -25,3 +25,11 @@ when you want to use this module you have to move every file to correct director
 | v1/me/blog              | GET | { ---- }                                               | user = { name, id }, <br> categories = [ { label , slug } ], <br> title, slug, description, meta_title, meta_description, confirmed                                                              | this is for authenticated users and set paginate to 12 **make sure about loggin**         | 
 | v1/blog/{slug}/like     | POST | { ----- }                                              | message , blog = { slug }                                                                                                                                                                        | Users can like or deslike blog                                                            |
 | v1/blog/{slug}/reply | POST | { text, ~parent_i~ }                                   | message, reply = { id, blog = { slug } }                                                                                                                                                         | reply a blog if parent_id sets it is answer the replyed text                              |
+
+<br>
+
+##### Admin routes
+
+| URL                     | METHOD | REQUEST                                                | RESPONSE                                                                                                                                                                                         | DESCRIPTION                                                                               |
+|-------------------------| ----- |--------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| v1/admin/blog/{slug}/confirmed | POST | { ----- } | message, blog = { slug } | Enable or disable blog by admin |
