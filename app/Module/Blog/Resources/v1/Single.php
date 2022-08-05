@@ -3,6 +3,7 @@
 namespace App\Module\Blog\Resources\v1;
 
 use App\Module\Blog\Resources\v1\Category\Collection as CategoryCollection;
+use App\Module\Blog\Resources\v1\Reply\Collection as ReplyCollection;
 use App\Module\Blog\Resources\v1\User\Single as SingleUserView;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -21,6 +22,7 @@ class Single extends JsonResource
             'likes' => $this->likes()->count(),
             'user' => new SingleUserView($this->user),
             'categories' => new CategoryCollection($this->categories()->get()),
+            'replies' => new ReplyCollection($this->replies()->where('parent_id', '=', null)->get()),
             // TODO : add view and reply
         ];
     }
