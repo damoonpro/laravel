@@ -11,7 +11,7 @@ class KavenegarSMS extends Model
 
     public $timestamps = false;
     protected $table = 'kavenegar_messages';
-    
+
     protected $fillable = [
         'user_id',
         'message_id',
@@ -24,4 +24,8 @@ class KavenegarSMS extends Model
         'price',
         'send_at'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
