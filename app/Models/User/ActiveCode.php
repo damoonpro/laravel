@@ -29,6 +29,12 @@ class ActiveCode extends Model
         return $code;
     }
 
+    public static function checkCode(User $user, int $code){
+        return !! $user->activeCodes()->where('expired_at', '>', now())
+            ->whereCode($code)
+            ->first();
+    }
+
     protected static function codeGenerator(){
         do{
             $code = mt_rand(100000, 999999);
