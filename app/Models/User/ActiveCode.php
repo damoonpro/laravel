@@ -30,9 +30,13 @@ class ActiveCode extends Model
     }
 
     public static function checkCode(User $user, int $code){
-        return !! $user->activeCodes()->where('expired_at', '>', now())
+        if($result = $user->activeCodes()->where('expired_at', '>', now())
             ->whereCode($code)
-            ->first();
+            ->first()){
+            self::cleanUserActiveCodes($user);
+        }
+
+        return !! $result;
     }
 
     protected static function codeGenerator(){
@@ -50,5 +54,9 @@ class ActiveCode extends Model
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    private static function cleanUserActiveCodes(User $user){
+        $user->activeCodes()->delete();
     }
 }
