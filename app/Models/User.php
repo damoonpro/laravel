@@ -46,4 +46,8 @@ class User extends Authenticatable
     public function activeCodes(){
         return $this->hasMany(ActiveCode::class);
     }
+
+    public function kavenegarSMS(){
+        return $this->hasMany(KavenegarSMS::class);
+    }
 }
