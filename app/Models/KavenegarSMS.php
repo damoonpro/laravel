@@ -34,7 +34,7 @@ class KavenegarSMS extends Model
     }
 
     protected static function exsitsCode(int $code){
-        return !! KavenegarSMS::whereCode($code)->first();
+        return !! KavenegarSMS::whereLocalId($code)->first();
     }
 
     public function user(){
