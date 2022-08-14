@@ -17,6 +17,7 @@ Route::prefix('v1')->group(function (){
 
         Route::prefix('SMS')->controller(SmsController::class)->group(function (){
             Route::post('/', 'sendSMS'); // route-url : v1/login/SMS => POST { mobile }
+            Route::post('verify', 'verifySMS'); // route-url : v1/login/SMS/verify => POST { mobile, code }
         });
     });
 });
