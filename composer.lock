@@ -68,12 +68,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/damoonpro/Laravel-Tools.git",
-                "reference": "614df62982d35bfab2b2bc9c921ea686e1e1c2d6"
+                "reference": "4e0e7cd2cf710baed3d82694ae135fa190f99a2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/damoonpro/Laravel-Tools/zipball/614df62982d35bfab2b2bc9c921ea686e1e1c2d6",
-                "reference": "614df62982d35bfab2b2bc9c921ea686e1e1c2d6",
+                "url": "https://api.github.com/repos/damoonpro/Laravel-Tools/zipball/4e0e7cd2cf710baed3d82694ae135fa190f99a2f",
+                "reference": "4e0e7cd2cf710baed3d82694ae135fa190f99a2f",
                 "shasum": ""
             },
             "default-branch": true,
@@ -107,7 +107,7 @@
                 "issues": "https://github.com/damoonpro/Laravel-Tools/issues",
                 "source": "https://github.com/damoonpro/Laravel-Tools/tree/main"
             },
-            "time": "2022-08-12T09:33:15+00:00"
+            "time": "2022-08-14T13:18:58+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
