@@ -33,7 +33,7 @@ class KavenegarSMS extends Model
         return $code;
     }
 
-    public static function exsitsCode(int $code){
+    protected static function exsitsCode(int $code){
         return !! KavenegarSMS::whereCode($code)->first();
     }
 
