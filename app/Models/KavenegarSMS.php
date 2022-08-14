@@ -25,6 +25,18 @@ class KavenegarSMS extends Model
         'send_at'
     ];
 
+    public static function codeGenerator(){
+        do{
+            $code = mt_rand(10000000, 99999999);
+        }while(self::exsitsCode($code));
+
+        return $code;
+    }
+
+    public static function exsitsCode(int $code){
+        return !! KavenegarSMS::whereCode($code)->first();
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }
