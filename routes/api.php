@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\v1\Authenticated\SMS\Controller as SmsController;
 use Damoon\Tools\Custom\Route\Route;
 
 Route::get('/', function (){
@@ -7,4 +8,15 @@ Route::get('/', function (){
 
     website : https://damoon.pro/
     github : https://github.com/damoonpro";
+});
+
+// route login goes here to other code page goes clean
+Route::prefix('v1')->group(function (){
+
+    Route::prefix('login')->group(function (){
+
+        Route::prefix('SMS')->controller(SmsController::class)->group(function (){
+            Route::post('/', 'sendSMS'); // route-url : v1/login/SMS => POST { mobile }
+        });
+    });
 });
