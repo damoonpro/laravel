@@ -16,8 +16,8 @@ Route::prefix('v1')->group(function (){
     Route::prefix('login')->group(function (){
 
         Route::prefix('SMS')->controller(SmsController::class)->group(function (){
-            Route::post('/', 'sendSMS'); // route-url : v1/login/SMS => POST { mobile }
-            Route::post('verify', 'verifySMS'); // route-url : v1/login/SMS/verify => POST { mobile, code }
+            Route::post('/', 'sendSMS')->middleware('throttle:1,2'); // route-url : v1/login/SMS => POST { mobile }
+            Route::post('verify', 'verifySMS')->middleware('throttle:3,2'); // route-url : v1/login/SMS/verify => POST { mobile, code }
         });
     });
 });
