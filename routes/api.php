@@ -1,19 +1,10 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+use Damoon\Tools\Custom\Route\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+Route::get('/', function (){
+    return "Description : Since August 02, 2020, we have come together to \"live with awareness and collective effort\" to walk for each other on the path of progress, embracing \"freedom and responsibility\".
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+    website : https://damoon.pro/
+    github : https://github.com/damoonpro";
 });
