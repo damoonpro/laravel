@@ -22,9 +22,13 @@ Route::prefix('v1')->group(function (){
         });
     });
 
-    Route::prefix('admin/config')->group(function (){
-        Route::prefix('message')->group(function (){
-            Route::get('/', [AdminSmsConfigController::class, 'collect']);
+    Route::prefix('admin/config')->middleware('auth:sanctum')->group(function (){
+        Route::prefix('message')->controller(AdminSmsConfigController::class)->group(function (){
+            Route::get('/', 'collect');
+
+            Route::prefix('{alias}')->group(function (){
+                Route::put('update', 'update');
+            });
         });
     });
 });
