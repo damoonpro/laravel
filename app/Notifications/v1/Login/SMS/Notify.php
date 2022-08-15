@@ -15,7 +15,7 @@ class Notify extends Notification implements ShouldQueue, IConfigured
     use Queueable;
     public string $text;
 
-    public function __construct(public int $code)
+    public function __construct(public int $code = 0)
     {
         // TODO : get this message form database
         $this->text = '{user} عزیز کد ورود شما : {code} است';

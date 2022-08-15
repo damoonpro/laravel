@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         $notification_messages = config('app.notification_message');
         foreach ($notification_messages as $notification_message) {
-            $notification_message = app($notification_message, ['code' => 0]);
+            $notification_message = app($notification_message);
             if($notification_message instanceof IConfigured)
             {
                 $notification_message->defaultConfig();
