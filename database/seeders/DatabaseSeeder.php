@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Interfaces\Message\IConfigured;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,6 +15,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $notification_messages = config('app.notification_message');
+        foreach ($notification_messages as $notification_message) {
+            $notification_message = app($notification_message, ['code' => 0]);
+            if($notification_message instanceof IConfigured)
+            {
+                $notification_message->defaultConfig();
+            }
+        }
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

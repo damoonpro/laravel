@@ -213,4 +213,7 @@ return [
         'Kavenegar' => Kavenegar\Laravel\Facade::class,
     ])->toArray(),
 
+    'notification_message' => [
+        'login_sms' => \App\Notifications\v1\Login\SMS\Notify::class,
+    ]
 ];
