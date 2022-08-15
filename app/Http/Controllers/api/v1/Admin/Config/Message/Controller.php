@@ -23,7 +23,7 @@ class Controller extends BaseController
         ]);
 
         return Helpers::responseWithMessage('تنظیمات پیامک با موفقیت ویرایش یافت', [
-            'message' => [
+            'sms' => [
                 'label' => $notification->translate(),
             ]
         ]);
