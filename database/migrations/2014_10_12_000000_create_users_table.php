@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('mobile')->nullable()->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('mobile_verified_at')->nullable();
+            $table->boolean('is_admin')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
