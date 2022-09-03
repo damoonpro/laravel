@@ -4,7 +4,6 @@
 
 <h1 align="center">Laravel 9 - <a href="https://damoon.pro" target="_blank">Damoon</a></h1>
 
-## Description 📚
 
 ### Installation
 
@@ -12,8 +11,8 @@
 composer create-project damoonpro/laravel
 ```
 
----
 
+---
 
 **TODO :** ✍️
 
@@ -26,7 +25,7 @@ composer create-project damoonpro/laravel
 | v1/login/SMS | POST | { mobile } | send a code to mobile for authentication<br>you can send only 1 request per 2 minute      | { message, user = { mobile } } |
 | v1/login/SMS/verify | POST | { mobile, code } | verify mobile to authentication. <br>you can send 3 request per 2 minute                  |  { message, token = { type, value }} or<br>{ message, login { message, status } } |
 
-<br>
+---
 
 ### Admin message configuration : 🧰
 
