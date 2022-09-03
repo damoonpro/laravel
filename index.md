@@ -1,19 +1,25 @@
-![end-xmini](https://user-images.githubusercontent.com/64106883/184724831-634672ea-1d41-431a-84d1-972467dcd979.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/64106883/184724831-634672ea-1d41-431a-84d1-972467dcd979.png" alt="غناوران سیستم و ارتباطات دامون">
+</p>
 
+<h1 align="center">Laravel 9 - <a href="https://damoon.pro" target="_blank">Damoon</a></h1>
 
-# Laravel 9 - [Damoon](https://damoon.pro)
+## Description 📚
 
-**Description** :books:
+### Installation
 
-- Required specifications
+```
+composer create-project damoonpro/laravel
+```
+
+---
 
 
 **TODO :** ✍️
 
-<br>
+---
 
-
-**Routes** :rocket:
+**Routes** 🚀
 
 | URL | METHOD | REQUEST | DESCRIPTION                                                                               | RESPONSE |
 | ----- | ----- | ----- |-------------------------------------------------------------------------------------------| ---- |
@@ -24,7 +30,7 @@
 
 ### Admin message configuration : 🧰
 
-**Description :** :books:
+**Description :** 📚
 1. get every sms configuration that sets.
 2. update sms text.
 if you want to update sms text you have to put alias in update route.
