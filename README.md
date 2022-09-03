@@ -1,7 +1,10 @@
-**Description** :books:
+## Description :books:
 
-- Required specifications
+### Installation
 
+```
+composer create-project damoonpro/laravel
+```
 
 **TODO :** ✍️
 
